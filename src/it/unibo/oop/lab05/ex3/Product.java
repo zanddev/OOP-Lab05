@@ -4,6 +4,7 @@ package it.unibo.oop.lab05.ex3;
  * This interface represents a product.
  * 
  */
+
 public interface Product {
 
     /**

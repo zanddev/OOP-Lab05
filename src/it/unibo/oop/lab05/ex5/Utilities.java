@@ -1,7 +1,6 @@
 package it.unibo.oop.lab05.ex5;
 
-import java.util.Collection;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
@@ -20,7 +19,9 @@ public final class Utilities {
      * @return a new set that is the union of the input sets.
      */
     public static <X> Set<X> setUnion(final Set<? extends X> setA, final Set<? extends X> setB) {
-        return null;
+        final Set<X> res = new LinkedHashSet<>(setA);
+        res.addAll(setB);
+        return res;
     }
 
     /**
@@ -33,7 +34,13 @@ public final class Utilities {
      * @return a new set that is the intersection of the input sets.
      */
     public static <X> Set<X> setIntersection(final Set<? extends X> setA, final Set<? extends X> setB) {
-        return null;
+        final Set<X> res = new LinkedHashSet<>();
+        for (final X elem: setA) {
+            if (setB.contains(elem)) {
+                res.add(elem);
+            }
+        }
+        return res;
     }
 
     /**
@@ -46,7 +53,9 @@ public final class Utilities {
      * @return a new set that is the symmetric difference of the input sets.
      */
     public static <X> Set<X> setSymmetricDifference(final Set<? extends X> setA, final Set<? extends X> setB) {
-        return null;
+        final var res = setUnion(setA, setB);
+        res.removeAll(setIntersection(setA, setB));
+        return res;
     }
 
     /**
@@ -58,6 +67,13 @@ public final class Utilities {
      *
      */
     public static <X> X getRandomElement(final Collection<X> coll) {
+        int n = new Random().nextInt(coll.size());
+        for (final X x : coll) {
+            if (n == 0) {
+                return x;
+            }
+            n--;
+        }
         return null;
     }
 
@@ -73,6 +89,6 @@ public final class Utilities {
      * @return a pair with two random elements
      */
     public static <X, Y> Pair<X, Y> getRandomPair(final Collection<X> first, final Collection<Y> second) {
-        return null;
+        return new Pair<>(getRandomElement(first), getRandomElement(second));
     }
 }

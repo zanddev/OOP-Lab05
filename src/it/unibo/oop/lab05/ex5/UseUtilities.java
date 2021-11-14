@@ -1,9 +1,6 @@
 package it.unibo.oop.lab05.ex5;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Simple the class to test {it.unibo.oop.lab05.Utilities} class.
