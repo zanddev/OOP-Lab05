@@ -35,7 +35,7 @@ public final class UseWarehouse {
 		final Product p2 = new ProductImpl("prosciutto crudo", 30);
 		final Product p3 = new ProductImpl("speck alto adige", 20);
 
-		final Warehouse w = null;
+		final Warehouse w = new WarehouseImpl();
 		w.addProduct(p3);
 		w.addProduct(p1);
 		w.addProduct(p2);
