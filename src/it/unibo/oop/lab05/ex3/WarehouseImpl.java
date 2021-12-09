@@ -7,20 +7,25 @@ public class WarehouseImpl implements Warehouse {
 
 	private final LinkedHashSet<String> list = new LinkedHashSet<>();
 	private final LinkedHashSet<Product> stock = new LinkedHashSet<>();
-	
+
+	public WarehouseImpl() { }
+
 	public void addProduct(Product p) {
-		stock.add(p);
-		list.add(p.getName());
+		this.stock.add(p);
+		this.list.add(p.getName());
 	}
 
 	@SuppressWarnings("unchecked")
 	public Set<String> allNames() {
-		return (Set<String>) list.clone();
+		return (Set<String>) this.list.clone();
+		
+		//Set<String> copySet = new LinkedHashSet<>(this.list);
+		//return copySet;
 	}
 
 	@SuppressWarnings("unchecked")
 	public Set<Product> allProducts() {
-		return (Set<Product>) stock.clone();
+		return (Set<Product>) this.stock.clone();
 	}
 
 	public boolean containsProduct(Product p) {
@@ -28,7 +33,7 @@ public class WarehouseImpl implements Warehouse {
 	}
 
 	public double getQuantity(String name) {
-		for (Product p : stock) {
+		for (Product p : this.stock) {
 			if (p.getName().equals(name)) {
 				return p.getQuantity();
 			}
