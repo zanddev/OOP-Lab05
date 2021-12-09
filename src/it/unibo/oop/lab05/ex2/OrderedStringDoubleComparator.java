@@ -6,7 +6,16 @@ import java.util.Comparator;
 public class OrderedStringDoubleComparator implements Comparator<String> {
 
 	@Override
-	public int compare(String str1, String str2) {
+	/**
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 * 
+	 * @param o1 the first string to compare, must be parse-able to double
+	 * @param o2 the second string to compare, must be parse-able to double
+	 * 
+	 * @return 1 if o1 > o2, 0 if o2 == o1, -1 otherwise
+	 * 
+	 */
+	public int compare(final String str1, final String str2) {
 		
 		//return this.compareDouble(Double.parseDouble(str1), Double.parseDouble(str2));
 		return this.compareStrings(str1, str2);
