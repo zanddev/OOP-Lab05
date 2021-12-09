@@ -41,7 +41,7 @@ public final class Utilities {
 	 */
 	public static <X> Set<X> setIntersection(final Set<? extends X> setA, final Set<? extends X> setB) {
 		final Set<X> setC = new LinkedHashSet<>(Math.min(setA.size(), setB.size()));
-		for (X elem : setA) {
+		for (final X elem : setA) {
 			if (setB.contains(elem)) {
 				setC.add(elem);
 			}
@@ -60,9 +60,9 @@ public final class Utilities {
 	 */
 	public static <X> Set<X> setSymmetricDifference(final Set<? extends X> setA, final Set<? extends X> setB) {
 		final Set<X> setC = Utilities.setUnion(setA, setB);
-		System.out.println(setC);
+		//System.out.println(setC);
 		setC.removeAll(Utilities.setIntersection(setA, setB));
-		System.out.println(setC);
+		//System.out.println(setC);
 		return setC;
 	}
 
@@ -75,17 +75,26 @@ public final class Utilities {
 	 *
 	 */
 	public static <X> X getRandomElement(final Collection<X> coll) {
+		/*
 		final Random rand = new Random();
-		final Double index = Math.floor(rand.nextDouble() * coll.size());
+		final int index = Math.floor(rand.nextDouble() * coll.size()).intValue();
 		//System.out.println(index.toString());
-		Iterator<X> it = coll.iterator();
-		for (long i = 0; i < index.longValue() ; i++) {
+		final Iterator<X> it = coll.iterator();
+		for (long i = 0; i < index ; i++) {
 			if (it.hasNext()) {
 				it.next();
 			}
 		}
-		
 		return it.next();
+		*/
+		int n = new Random().nextInt(coll.size());
+		for (final X x : coll) {
+			if (n == 0) {
+				return x;
+			}
+			n--;
+		}
+		return null;
 	}
 
 	/**
