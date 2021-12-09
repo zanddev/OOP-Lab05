@@ -1,5 +1,6 @@
 package it.unibo.oop.lab05.ex2;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -19,7 +20,7 @@ public final class UseSetWithOrder {
 		/* Creates a new ORDERED TreeSet of Strings. To order the set, define
 		 * a new Comparator in a separate class.
 		 */
-		TreeSet<String> tree = new TreeSet<String>(new OrderedStringDoubleComparator());
+		final Set<String> tree = new TreeSet<String>(new OrderedStringDoubleComparator());
 		
 		/* Inserts in the set a hundred strings containing randomly generated
 		 * numbers (use Math.random())
